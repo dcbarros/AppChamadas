@@ -1,12 +1,11 @@
 package br.com.professor.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Subject {
@@ -15,8 +14,8 @@ public class Subject {
     private String subjectCode;
     private String name;
 
-    @OneToMany
-    List<Student> students;
+    @ManyToMany
+    private List<Student> students;
 
     public Subject(String subjectCode, String name) {
         this.subjectCode = subjectCode;

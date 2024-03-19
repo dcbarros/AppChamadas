@@ -29,9 +29,14 @@ public class SubjectDAO extends DAO<Subject>{
     }
 
     public List<Student> getStudentsBySubjectCode(String subjectCode){
-        return entityManager.createQuery("SELECT s FROM Student s JOIN s.subject subj WHERE subj.subjectCode = :subjectCode", Student.class)
-        .setParameter("subjectCode", subjectCode)
-        .getResultList();
+        try {
+            if(subjectCode == null || subjectCode.isBlank()) throw new IllegalArgumentException("Código da matéria inválido");
+            return entityManager.createQuery("SELECT s FROM Student s JOIN s.subjects subj WHERE subj.subjectCode = :subjectCode", Student.class)
+                .setParameter("subjectCode", subjectCode)
+                .getResultList();
+        } catch (Exception e) {
+            throw new RuntimeException("Ocorreu um erro não esperado");
+        }
     }
     
 }

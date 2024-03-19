@@ -1,8 +1,10 @@
 package br.com.professor.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Student {
@@ -11,10 +13,9 @@ public class Student {
     private String studentCode;
     private String name;
 
-    @ManyToOne
-    private Subject subject;
-
-
+    @ManyToMany(mappedBy = "students")
+    private List<Subject> subjects;
+    
     public Student() {
     }
 
@@ -36,11 +37,12 @@ public class Student {
         this.name = name;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public List<Subject> getSubjects() {
+        return subjects;
     }
 
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
     }
+
 }
