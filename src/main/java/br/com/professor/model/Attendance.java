@@ -28,6 +28,9 @@ public class Attendance {
 
     
 
+    public Attendance() {
+    }
+
     public Attendance(LocalDate checkIn, String topics, List<StudentPresence> studentPresenceList, Subject subject) {
         this.checkIn = checkIn;
         this.topics = topics;
