@@ -16,7 +16,7 @@ public class AttendanceDAO extends DAO<Attendance>{
             id = (Long) id;
             if(id == null) throw new IllegalArgumentException("matrícula do aluno é inválida");
             attendance = entityManager.find(Attendance.class, id);
-            if(attendance == null) throw new NullPointerException("Matrícula não localizada no sistema: " + id);
+            if(attendance == null) throw new NullPointerException("Id não localizada no sistema: " + id);
             return attendance;
         } catch (ClassCastException e) {
             throw new ClassCastException("Tipo de dado incompatível, o id deve ser um Long");
