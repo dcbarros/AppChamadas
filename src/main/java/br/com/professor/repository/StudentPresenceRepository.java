@@ -19,7 +19,6 @@ public class StudentPresenceRepository extends DAO<StudentPresence>{
             id = (Long) id;
             if(id == null) throw new IllegalArgumentException("matrícula do aluno é inválida");
             studentPresence = entityManager.find(StudentPresence.class, id);
-            if(studentPresence == null) throw new NullPointerException("Id não localizada no sistema: " + id);
             return studentPresence;
         } catch (ClassCastException e) {
             throw new ClassCastException("Tipo de dado incompatível, o id deve ser um Long");

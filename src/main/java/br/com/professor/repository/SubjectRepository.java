@@ -20,12 +20,9 @@ public class SubjectRepository extends DAO<Subject>{
             String subjectCode = (String) id;
             if(id == null || subjectCode.isBlank()) throw new IllegalArgumentException("O código da matéria é inválida");
             subject = entityManager.find(Subject.class, subjectCode);
-            if(subject == null) throw new NullPointerException("Matrícula não localizada no sistema: " + subjectCode);
             return subject;
         } catch (ClassCastException e) {
             throw new ClassCastException("Tipo de dado incompatível, o código da matéria deve ser uma String");
-        } catch (Exception e) {
-            throw new RuntimeException("Ocorreu um erro não esperado");
         }
     }
 
