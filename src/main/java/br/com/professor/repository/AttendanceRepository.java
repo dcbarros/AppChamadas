@@ -1,10 +1,11 @@
-package br.com.professor.infra;
+package br.com.professor.repository;
 
+import br.com.professor.infra.DAO;
 import br.com.professor.model.Attendance;
 
-public class AttendanceDAO extends DAO<Attendance>{
+public class AttendanceRepository extends DAO<Attendance>{
     
-    public AttendanceDAO(){
+    public AttendanceRepository(){
         super(Attendance.class);
     }
 

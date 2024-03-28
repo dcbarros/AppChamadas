@@ -1,14 +1,15 @@
-package br.com.professor.infra;
+package br.com.professor.repository;
 
 import java.util.List;
 
+import br.com.professor.infra.DAO;
 import br.com.professor.model.Student;
 import br.com.professor.model.Subject;
 import jakarta.persistence.TypedQuery;
 
-public class SubjectDAO extends DAO<Subject>{
+public class SubjectRepository extends DAO<Subject>{
     
-    public SubjectDAO(){
+    public SubjectRepository(){
         super(Subject.class);
     }
 

@@ -1,13 +1,14 @@
-package br.com.professor.infra;
+package br.com.professor.repository;
 
 import java.util.List;
 
+import br.com.professor.infra.DAO;
 import br.com.professor.model.StudentPresence;
 import jakarta.persistence.TypedQuery;
 
-public class StudentPresenceDAO extends DAO<StudentPresence>{
+public class StudentPresenceRepository extends DAO<StudentPresence>{
 
-    public StudentPresenceDAO(){
+    public StudentPresenceRepository(){
         super(StudentPresence.class);
     }
 
