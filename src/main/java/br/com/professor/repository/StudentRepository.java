@@ -16,12 +16,9 @@ public class StudentRepository extends DAO<Student>{
             String studentCode = (String) id;
             if(id == null || studentCode.isBlank()) throw new IllegalArgumentException("matrícula do aluno é inválida");
             student = entityManager.find(Student.class, studentCode);
-            if(student == null) throw new NullPointerException("Matrícula não localizada no sistema: " + studentCode);
             return student;
         } catch (ClassCastException e) {
             throw new ClassCastException("Tipo de dado incompatível, a matrícula deve ser uma String");
-        } catch (Exception e) {
-            throw new RuntimeException("Ocorreu um erro não esperado");
         }
     }
 }
