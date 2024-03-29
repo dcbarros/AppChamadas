@@ -15,8 +15,8 @@ import br.com.professor.repository.SubjectRepository;
 
 public class SubjectService {
 
-    SubjectRepository subjectRepository;
-    StudentRepository studentRepository;
+    private SubjectRepository subjectRepository;
+    private StudentRepository studentRepository;
 
     public SubjectService(){
         this.subjectRepository = new SubjectRepository();
@@ -48,7 +48,7 @@ public class SubjectService {
 
         if(student == null) throw new NoSuchElementException("O Estudante deve ser cadastrado no sistema");
         if(subject == null) throw new NoSuchElementException("A Matéria deve ser cadastrada no sistema");
-        
+
         Set<Student> students = new HashSet<>(subject.getStudents());
         students.add(student);
         subject.setStudents(new ArrayList<>(students));

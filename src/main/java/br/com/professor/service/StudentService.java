@@ -5,7 +5,7 @@ import br.com.professor.repository.StudentRepository;
 
 public class StudentService {
 
-    StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     public StudentService(){
         this.studentRepository = new StudentRepository();
