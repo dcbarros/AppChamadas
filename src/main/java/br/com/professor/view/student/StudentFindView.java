@@ -24,7 +24,7 @@ public class StudentFindView {
             System.out.printf("Matricula: %s, Nome: %s\n", student.getStudentCode(), student.getName());
             System.out.println("Matriculado em: ");
             student.getSubjects().forEach((s) -> {
-                System.out.printf("\t- %s", s.getName());
+                System.out.printf("\t- %s\n", s.getName());
             });
             System.out.println("Digite ENTER para continuar.");
             scanner.nextLine();
