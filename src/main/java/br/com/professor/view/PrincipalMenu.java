@@ -2,12 +2,12 @@ package br.com.professor.view;
 
 import java.util.Arrays;
 
+import br.com.professor.model.Message;
 import br.com.professor.view.components.AbstractMenuView;
 import br.com.professor.view.components.MenuItem;
+import br.com.professor.view.student.StudentView;
 
 public class PrincipalMenu extends AbstractMenuView{
-
-
 
     public PrincipalMenu() {
         super(
@@ -17,14 +17,16 @@ public class PrincipalMenu extends AbstractMenuView{
                 new MenuItem(3, "Presenças"),
                 new MenuItem(4, "Relatório"),
                 new MenuItem(5, "Sair")
-            )
+            ),
+            new Message("###### Menu Principal ######")
         );
     }
 
     @Override
     public void executeOption(Integer choice) {
+        this.message.setDefaultText("");
         switch (choice) {
-            case 1 -> System.out.println("Aluno");
+            case 1 -> new StudentView().execute();
             case 2 -> System.out.println("Matéria");
             case 3 -> System.out.println("Presenças");
             case 4 -> System.out.println("Relatório");
@@ -34,10 +36,10 @@ public class PrincipalMenu extends AbstractMenuView{
                 System.exit(0);
             }
             default -> {
-                System.out.println(choice + ": Opção não localizada no menu.");
-                execute();        
+                this.message.setDefaultText(choice + ": Opção não localizada no menu.\n");      
             }
         }
+        execute();
     }
     
 }

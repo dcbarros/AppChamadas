@@ -12,20 +12,21 @@ public abstract class AbstractMenuView implements MenuInterface{
     protected Runnable clearConsole;
     protected Message message;
 
-    public AbstractMenuView(List<MenuItem> itens) {
+    public AbstractMenuView(List<MenuItem> itens, Message message) {
         this.itens = itens;
         this.scanner = new Scanner(System.in);
         this.clearConsole = () -> {
             System.out.print("\033[H\033[2J");
             System.out.flush();
         };
-        this.message = new Message("######### APLICAÇÃO INICIADA - REGISTRO DE PRESENÇAS #########");
+        this.message = message;
     }
 
     @Override
     public void execute() {
         this.clearConsole.run();
-        System.out.println(this.message.getText());
+        System.out.println(this.message.getTitle());
+        System.out.println(this.message.getDefaultText());
         this.itens.forEach((i) -> {
             System.out.println(i.getOPTION() + " - " + i.getOPTIONTEXT());
         });
