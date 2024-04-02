@@ -49,6 +49,21 @@ public class AttendanceService {
         return true;
     }
 
-    //ToDO: Retornar lista de presença a partir de um id
+    public Attendance getAttendanceById(Long id){
+        try {
+            return attendanceRepository.getById(id);       
+        } catch (Exception e) {
+            throw new NoSuchElementException("Não foi possível localizar a ficha de presença");
+        }
+    }
+
+    public List<Attendance> getAllAttendances(){
+        return attendanceRepository.getAll();
+    }
+
+    public List<Attendance> getAllAttendancesBySubjectCode(String subjectCode){
+        if(subjectCode == null || subjectCode.isBlank()) throw new IllegalArgumentException("O cód. da materia deve ser preenchido");
+        return attendanceRepository.getAllBySubjectCode(subjectCode);
+    }
     
 }
