@@ -1,4 +1,4 @@
-package br.com.professor.view;
+package br.com.professor.view.components;
 
 public interface MenuInterface {
     void execute();

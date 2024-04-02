@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.com.professor.model.Message;
-import br.com.professor.view.MenuInterface;
 
 public abstract class AbstractMenuView implements MenuInterface{
     private List<MenuItem> itens;
