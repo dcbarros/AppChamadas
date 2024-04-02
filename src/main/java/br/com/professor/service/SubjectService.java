@@ -1,6 +1,7 @@
 package br.com.professor.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -63,6 +64,8 @@ public class SubjectService {
 
     public List<Student> getAllStudentEnrolledSubjectBySubjectCode(String subjectCode){
         if(subjectCode == null || subjectCode.isBlank()) throw new IllegalArgumentException("O Código da matéria está inválida");
-        return subjectRepository.getStudentsBySubjectCode(subjectCode);
+        List<Student> students = subjectRepository.getStudentsBySubjectCode(subjectCode);
+        Collections.sort(students, (s1, s2) -> s1.getName().compareTo(s2.getName()));
+        return students;
     }
 }

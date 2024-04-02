@@ -6,6 +6,7 @@ import br.com.professor.model.Message;
 import br.com.professor.view.components.AbstractMenuView;
 import br.com.professor.view.components.MenuItem;
 import br.com.professor.view.student.StudentView;
+import br.com.professor.view.subjects.SubjectView;
 
 public class PrincipalMenu extends AbstractMenuView{
 
@@ -27,7 +28,7 @@ public class PrincipalMenu extends AbstractMenuView{
         this.message.setDefaultText("");
         switch (choice) {
             case 1 -> new StudentView().execute();
-            case 2 -> System.out.println("Matéria");
+            case 2 -> new SubjectView().execute();
             case 3 -> System.out.println("Presenças");
             case 4 -> System.out.println("Relatório");
             case 5 -> {
